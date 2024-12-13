@@ -18,6 +18,17 @@ function handleFormSubmit(event) {
   document.getElementById("email").value = "";
   document.getElementById("phone").value = "";
 }
+//33 - assignment answer
+axios
+  .get(
+    "https://crudcrud.com/api/07a51c36634443c9815ee8dfd8c28dcb/appointmentData"
+  )
+  .then((res) => {
+    for (let i = 0; i < res.data.length; i++) {
+      displayUserOnScreen(res.data[i]);
+    }
+  })
+  .catch((res) => console.log(res));
 
 function displayUserOnScreen(userDetails) {
   const userItem = document.createElement("li");
